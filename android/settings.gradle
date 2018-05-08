@@ -1,0 +1,3 @@
+rootProject.name = 'en-trade'
+
+include ':app'
