@@ -1,4 +1,15 @@
 {
-  "name": "cameraTutorial",
-  "displayName": "cameraTutorial"
+  "expo": {
+    "name": "mycamera",
+    "icon": "./assets/icon.png",
+    "version": "1.0.0",
+    "slug": "mycamera",
+    "sdkVersion": "27.0.0",
+    "ios": {
+      "bundleIdentifier": "com.techlift.mycamera"
+    },
+    "android": {
+      "package": "com.techlift.mycamera"
+    }
+  }
 }
