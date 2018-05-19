@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "EnTrade",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/fav.png",
     "version": "1.0.0",
     "slug": "EnTrade",
     "sdkVersion": "27.0.0",

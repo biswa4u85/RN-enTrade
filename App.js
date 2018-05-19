@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TextInput, Image, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
 import { Dropdown } from 'react-native-material-dropdown';
+import EnTrade from './assets/EnTrade.png'
 
 export default class App extends React.Component {
 
@@ -98,9 +99,15 @@ export default class App extends React.Component {
       return (
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: 100 }}>
           <View>
+            <Image
+              style={{ width: 220, height: 100 }}
+              source={EnTrade}
+            />
+          </View>
+          <View>
             {this.showImg()}
             <TouchableOpacity
-              style={{ backgroundColor: 'gray', padding: 10, marginTop: 5, borderRadius: 5 }}
+              style={{ backgroundColor: '#006400', padding: 10, marginTop: 5, borderRadius: 5 }}
               onPress={() => {
                 this.setState({
                   openCamera: true
@@ -123,7 +130,7 @@ export default class App extends React.Component {
             />
           </View>
           <TouchableOpacity
-            style={{ backgroundColor: 'gray', padding: 10, margin: 10, borderRadius: 5, marginBottom: 100 }}
+            style={{ backgroundColor: '#006400', padding: 10, margin: 10, borderRadius: 5, marginBottom: 100 }}
             onPress={() => {
               this.setState({
                 photo: null,
