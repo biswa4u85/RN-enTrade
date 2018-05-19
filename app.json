@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "mycamera",
+    "name": "EnTrade",
     "icon": "./assets/icon.png",
     "version": "1.0.0",
-    "slug": "mycamera",
+    "slug": "EnTrade",
     "sdkVersion": "27.0.0",
     "ios": {
-      "bundleIdentifier": "com.techlift.mycamera"
+      "bundleIdentifier": "com.techlift.EnTrade"
     },
     "android": {
-      "package": "com.techlift.mycamera"
+      "package": "com.techlift.EnTrade"
     }
   }
 }

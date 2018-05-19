@@ -10,7 +10,7 @@ export default class App extends React.Component {
     type: Camera.Constants.Type.back,
     openCamera: false,
     photo: null,
-    comments: '',
+    comments: 'enter comments here',
   };
 
   async componentWillMount() {
@@ -36,11 +36,11 @@ export default class App extends React.Component {
   render() {
     const { hasCameraPermission, openCamera } = this.state;
     let data = [{
-      value: 'Type 01',
+      value: 'Field 1',
     }, {
-      value: 'Type 02',
+      value: 'Field 2',
     }, {
-      value: 'Type 03',
+      value: 'Field 3',
     }];
 
     if (hasCameraPermission === null) {
@@ -113,7 +113,7 @@ export default class App extends React.Component {
             style={{ width: 200 }}
           >
             <Dropdown
-              label='Select Type'
+              label='Select Field name'
               data={data}
             />
             <TextInput
@@ -126,10 +126,11 @@ export default class App extends React.Component {
             style={{ backgroundColor: 'gray', padding: 10, margin: 10, borderRadius: 5, marginBottom: 100 }}
             onPress={() => {
               this.setState({
-
+                photo: null,
+                comments: 'enter comments here'
               });
             }}>
-            <Text style={{ fontSize: 15, color: 'white' }}>Save Data</Text>
+            <Text style={{ fontSize: 15, color: 'white' }}>Save</Text>
           </TouchableOpacity>
         </View>
       );
