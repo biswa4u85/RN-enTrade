@@ -19,12 +19,11 @@ export default class App extends React.Component {
   }
 
   showImg() {
-    console.log(this.state.photo)
     if (this.state.photo) {
       return (
         <Image
           style={{ width: 100, height: 100 }}
-          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+          source={{ uri: this.state.photo }}
         />
       )
     } else {
@@ -67,10 +66,15 @@ export default class App extends React.Component {
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'transparent' }}>
               <TouchableOpacity
                 onPress={() => {
-                  this.setState({
-                    openCamera: false,
-                    photo: this.camera.takePictureAsync()
-                  });
+                  if (this.camera) {
+                    this.camera.takePictureAsync()
+                      .then(data => {
+                        this.setState({
+                          openCamera: false,
+                          photo: data.uri
+                        });
+                      })
+                  }
                 }}>
                 <Text style={{ fontSize: 18, margin: 10, color: 'white' }}>Keep</Text>
               </TouchableOpacity>
