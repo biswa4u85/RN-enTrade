@@ -7,7 +7,7 @@ export default class App extends React.Component {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
     openCamera: false,
-    photo: {},
+    photo: 'Image',
     comments: 'Add Comments Here...',
   };
 
@@ -26,16 +26,8 @@ export default class App extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Camera ref={ref => { this.camera = ref; }} style={{ flex: 1 }} type={this.state.type}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                flexDirection: 'row',
-              }}>
+            <View style={{ flex: 10, flexDirection: 'row', backgroundColor: 'transparent' }}>
               <TouchableOpacity
-                style={{
-                  alignItems: 'center',
-                }}
                 onPress={() => {
                   this.setState({
                     type: this.state.type === Camera.Constants.Type.back
@@ -43,64 +35,64 @@ export default class App extends React.Component {
                       : Camera.Constants.Type.back,
                   });
                 }}>
-                <Text
-                  style={{ fontSize: 18, marginLeft: 10, marginTop: 50, color: 'white' }}>
-                  {' '}Flip{' '}
-                </Text>
+                <Text style={{ fontSize: 18, marginLeft: 20, marginTop: 40, color: 'white' }}>Flip</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'transparent' }}>
+              <TouchableOpacity
+                onPress={() => {
+                  this.setState({
+                    openCamera: false,
+                    photo: this.camera.takePictureAsync()
+                  });
+                }}>
+                <Text style={{ fontSize: 18, margin: 10, color: 'white' }}>Save</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  alignItems: 'center',
+                }}
+                onPress={() => {
+                  this.setState({
+                    openCamera: false,
+                    photo: {}
+                  });
+                }}>
+                <Text style={{ fontSize: 18, margin: 10, color: 'white' }}>Cancel</Text>
               </TouchableOpacity>
             </View>
           </Camera>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({
-                  openCamera: false,
-                  photo: this.camera.takePictureAsync()
-                });
-              }}>
-              <Text style={{ fontSize: 18, margin: 10 }}>Save Photo</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({
-                  openCamera: false,
-                  photo: {}
-                });
-              }}>
-              <Text style={{ fontSize: 18, margin: 10 }}>Cancel Photo</Text>
-            </TouchableOpacity>
-          </View>
         </View>
       )
     } else {
       return (
-
-        <View style={{ flex: 1, marginTop: 100 }}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: 100 }}>
           <View>
-            {/* <Text>{this.state.photo}</Text> */}
+            <Text>{this.state.photo}</Text>
             <TouchableOpacity
-              style={{ margin: 20 }}
+              style={{ backgroundColor: 'gray', padding: 10, marginTop: 5, borderRadius: 5 }}
               onPress={() => {
                 this.setState({
                   openCamera: true
                 });
               }}>
-              <Text>Take Photo</Text>
-            </TouchableOpacity>
-            <TextInput
-              style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-              onChangeText={(comments) => this.setState({ comments })}
-              value={this.state.comments}
-            />
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({
-
-                });
-              }}>
-              <Text style={{ fontSize: 18, margin: 10 }}>Save Data</Text>
+              <Text style={{ fontSize: 15, color: 'white' }}>Take Photo</Text>
             </TouchableOpacity>
           </View>
+          <TextInput
+            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={(comments) => this.setState({ comments })}
+            value={this.state.comments}
+          />
+          <TouchableOpacity
+            style={{ backgroundColor: 'gray', padding: 10, margin: 10, borderRadius: 5 }}
+            onPress={() => {
+              this.setState({
+
+              });
+            }}>
+            <Text style={{ fontSize: 15, color: 'white' }}>Save Data</Text>
+          </TouchableOpacity>
         </View>
       );
     }
