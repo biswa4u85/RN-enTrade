@@ -1,6 +1,6 @@
 #Camera APP
 
-This is GearMapp2 App
+This is Camera App
 
 #Screen Short
 <p align="center">
